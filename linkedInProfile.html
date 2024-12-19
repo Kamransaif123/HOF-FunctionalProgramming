@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>linkedin profile url validator</title>
+    <!-- css -->
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: whitesmoke;
+    font-family: 'poppins', sans-serif;
+}
+
+.container {
+    padding: 25px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0.5px 0.5px 5px #818181,
+        0px 0px 14px #fdfafa31,
+        0px 0px 13px #ffffff5d,
+        0px 0px 20px #ffffffa4;
+    /* width: 300px; */
+    max-width: 95vw;
+}
+
+.container label {
+    font-size: 18px;
+    color: #222222;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+}
+
+.container input {
+    width: 100%;
+    padding: 8px 6px;
+    font-size: 17px;
+    font-weight: 500;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.container button {
+    width: 100%;
+    margin-top: 30px;
+    padding: 8px 6px;
+    border: 1px solid #2281cf;
+    background-color: #2caccc;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="url">Paste here linkedin profile url</label>
+        <input type="text" id="url">
+        <button id="btn">check</button>
+    </div>
+</body>
+<script>
+    const btn = document.getElementById('btn');
+
+const urlRegex = /https:\/\/www\.linkedin\.com*\/in\/[a-z]+[$&+,:;=?@#|'<>.^*()%!-][a-z]+[$&+,:;=?@#|'<>.^*()%!-].+/;
+
+function checkUrlValidity() {
+  const url = document.getElementById('url').value;
+  if (urlRegex.test(url)) {
+    alert(`${url} is a valid URL.`);
+  } else {
+    alert(`${url} is not a valid URL.`);
+  }
+}
+
+btn.addEventListener("click", checkUrlValidity)
+</script>
+
+</html>
